@@ -1,7 +1,7 @@
 import { useEffect, ReactNode } from "react";
 import { Image } from "../../types/Image.types";
 import ReactModal from "react-modal";
-import styles from "./ImageModal.module.css";
+import s from "./ImageModal.module.css";
 
 interface ModalProps {
   isOpen: boolean;
@@ -46,26 +46,26 @@ const Modal: React.FC<ModalProps> = ({
     <ReactModal
       isOpen={isOpen}
       onRequestClose={onClose}
-      className={styles.modal}
-      overlayClassName={styles.overlay}
+      className={s.modal}
+      overlayClassName={s.overlay}
       ariaHideApp={false}
     >
       {image && (
-        <div className={styles.content}>
+        <div className={s.content}>
           <img
             src={image.urls.regular}
             alt={image.alt_description || "Image"}
-            className={styles.image}
+            className={s.image}
           />
-          <p className={styles.description}>
+          <p className={s.description}>
             {image.description || "No description available"}
           </p>
-          <p className={styles.author}>
+          <p className={s.author}>
             Author: {image.user ? image.user.name : "Unknown"}
           </p>
         </div>
       )}
-      <button onClick={onClose} className={styles.closeBtn}>
+      <button onClick={onClose} className={s.closeBtn}>
         ✕
       </button>
       {children}
